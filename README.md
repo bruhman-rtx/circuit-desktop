@@ -1,4 +1,4 @@
-# Loom — desktop (beta)
+# Circuit — desktop (beta)
 
 **A shared board that you and Claude both read and write.** Six surfaces —
 Spool (tasks), Sparks (ideas), Margin (notes), Cadence (calendar), Vault
@@ -13,14 +13,14 @@ Intel). No account, no server, no telemetry — nothing leaves your machine.
 
 Grab the latest from **[Releases →](../../releases/latest)**:
 
-**Windows** — **`Loom-…-setup.exe`** (per-user install, no admin prompt)
+**Windows** — **`Circuit-…-setup.exe`** (per-user install, no admin prompt)
 
 **macOS** — pick your chip:
-- **`Loom-…-arm64.dmg`** — Apple Silicon (M1/M2/M3/M4)
-- **`Loom-…-x64.dmg`** — Intel
+- **`Circuit-…-arm64.dmg`** — Apple Silicon (M1/M2/M3/M4)
+- **`Circuit-…-x64.dmg`** — Intel
 - the matching **`.zip`** is the same app, if you'd rather unzip-and-drag than mount a disk image
 
-**Both** — **`loom-….mcpb`**, the one-click Claude Desktop extension (optional; see below)
+**Both** — **`circuit-….mcpb`**, the one-click Claude Desktop extension (optional; see below)
 
 ## ⚠️ Your OS will warn you — and it's right to
 
@@ -32,28 +32,28 @@ then allow it.
 Click **More info**, then **Run anyway**.
 
 ```powershell
-Get-FileHash .\Loom-1.0.0-preview.1-setup.exe
+Get-FileHash .\Circuit-1.0.0-preview.2-setup.exe
 ```
 
 **macOS** — Gatekeeper says the app *"can't be opened"* or *"is damaged"*
 (because it isn't notarized, not because anything's wrong). **Right-click
-Loom.app → Open → Open** — that records a one-time exception, and every launch
-after is a normal double-click. If a downloaded `.dmg` still refuses:
+Circuit.app → Open → Open** — that records a one-time exception, and every
+launch after is a normal double-click. If a downloaded `.dmg` still refuses:
 
 ```bash
-shasum -a 256 ~/Downloads/Loom-1.0.0-preview.1-arm64.dmg   # verify
-xattr -dr com.apple.quarantine /Applications/Loom.app       # clear the download quarantine
+shasum -a 256 ~/Downloads/Circuit-1.0.0-preview.2-arm64.dmg   # verify
+xattr -dr com.apple.quarantine /Applications/Circuit.app       # clear the download quarantine
 ```
 
 If a hash doesn't match the Release notes, don't run it.
 
 ## Connecting Claude
 
-Loom brings its own MCP server — no Node, no repo, no build.
+Circuit brings its own MCP server — no Node, no repo, no build.
 
 - **One click:** download the `.mcpb` from the Release and drop it on Claude
   Desktop's **Settings → Extensions**, or just double-click it. It asks for
-  your Loom folder; the default is already correct.
+  your Circuit folder; the default is already correct.
 - **By hand / for Claude Code:** open **Settings → Claude** in the app — it
   prints the exact config to paste, with your machine's paths already in it.
 
@@ -65,12 +65,12 @@ after connecting.
 One plain-JSON file, in the open:
 
 ```
-Windows   %USERPROFILE%\Documents\Loom\board.json
-macOS     ~/Documents/Loom/board.json
+Windows   %USERPROFILE%\Documents\Circuit\board.json
+macOS     ~/Documents/Circuit/board.json
 ```
 
-Loom writes it atomically and keeps a dated snapshot each day in the `backups`
-folder beside it. It starts empty — no sample data to clear out.
+Circuit writes it atomically and keeps a dated snapshot each day in the
+`backups` folder beside it. It starts empty — no sample data to clear out.
 
 ## Known limits in this beta
 
@@ -89,5 +89,5 @@ specific ("I did X, expected Y, got Z"), the more useful.
 
 ---
 
-*Loom is closed-source in this beta; this repo hosts the downloads and issue
+*Circuit is closed-source in this beta; this repo hosts the downloads and issue
 tracker only.*
