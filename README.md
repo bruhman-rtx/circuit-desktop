@@ -6,29 +6,46 @@ Spool (tasks), Sparks (ideas), Margin (notes), Cadence (calendar), Vault
 through an MCP bridge and edits the same board you're looking at; changes
 appear live and every one is logged under Claude's name.
 
-This is a **beta for Windows 10/11 (64-bit)**. No account, no server, no
-telemetry — nothing leaves your machine.
+This is a **beta for Windows 10/11 (64-bit) and macOS 11+** (Apple Silicon or
+Intel). No account, no server, no telemetry — nothing leaves your machine.
 
 ## Download
 
 Grab the latest from **[Releases →](../../releases/latest)**:
 
-- **`Loom-…-setup.exe`** — the app (per-user install, no admin prompt)
-- **`loom-….mcpb`** — the one-click Claude Desktop extension (optional; see below)
+**Windows** — **`Loom-…-setup.exe`** (per-user install, no admin prompt)
 
-## ⚠️ Windows will warn you — and it's right to
+**macOS** — pick your chip:
+- **`Loom-…-arm64.dmg`** — Apple Silicon (M1/M2/M3/M4)
+- **`Loom-…-x64.dmg`** — Intel
+- the matching **`.zip`** is the same app, if you'd rather unzip-and-drag than mount a disk image
 
-The installer is **not code-signed**, so SmartScreen shows a blue *"Windows
-protected your PC"* screen. To continue: click **More info**, then **Run
-anyway**.
+**Both** — **`loom-….mcpb`**, the one-click Claude Desktop extension (optional; see below)
 
-Don't take that on trust — **verify the hash first**. In PowerShell:
+## ⚠️ Your OS will warn you — and it's right to
+
+Neither build is code-signed, so the first launch is stopped on both platforms.
+Don't take that on trust — **verify the hash against the Release notes first**,
+then allow it.
+
+**Windows** — SmartScreen shows a blue *"Windows protected your PC"* screen.
+Click **More info**, then **Run anyway**.
 
 ```powershell
 Get-FileHash .\Loom-1.0.0-preview.1-setup.exe
 ```
 
-It must match the SHA-256 in the Release notes. If it doesn't, don't run it.
+**macOS** — Gatekeeper says the app *"can't be opened"* or *"is damaged"*
+(because it isn't notarized, not because anything's wrong). **Right-click
+Loom.app → Open → Open** — that records a one-time exception, and every launch
+after is a normal double-click. If a downloaded `.dmg` still refuses:
+
+```bash
+shasum -a 256 ~/Downloads/Loom-1.0.0-preview.1-arm64.dmg   # verify
+xattr -dr com.apple.quarantine /Applications/Loom.app       # clear the download quarantine
+```
+
+If a hash doesn't match the Release notes, don't run it.
 
 ## Connecting Claude
 
@@ -48,15 +65,17 @@ after connecting.
 One plain-JSON file, in the open:
 
 ```
-%USERPROFILE%\Documents\Loom\board.json
+Windows   %USERPROFILE%\Documents\Loom\board.json
+macOS     ~/Documents/Loom/board.json
 ```
 
-Loom writes it atomically and keeps a dated snapshot each day in
-`Documents\Loom\backups`. It starts empty — no sample data to clear out.
+Loom writes it atomically and keeps a dated snapshot each day in the `backups`
+folder beside it. It starts empty — no sample data to clear out.
 
 ## Known limits in this beta
 
-- **Unsigned** — hence the SmartScreen warning above.
+- **Unsigned** — hence the gatekeeper warnings above (SmartScreen on Windows,
+  Gatekeeper on macOS).
 - **No auto-update** — to move to a newer build, download it and install over
   the top. Your board is untouched.
 - **One machine** — no sync yet.
