@@ -4,18 +4,18 @@ Circuit is a desktop task board that you and Claude both read and write — one 
 
 ## Download
 
-Get everything from the **[v1.0.0-preview.2 release](https://github.com/bruhman-rtx/circuit-desktop/releases/tag/v1.0.0-preview.2)**:
+Get everything from the **[v1.0.0-preview.3 release](https://github.com/bruhman-rtx/circuit-desktop/releases/tag/v1.0.0-preview.3)**:
 
-- **Windows** — `Circuit-1.0.0-preview.2-setup.exe`
-- **macOS (Apple Silicon)** — `Circuit-1.0.0-preview.2-arm64.dmg` (or `-arm64.zip`)
-- **macOS (Intel)** — `Circuit-1.0.0-preview.2-x64.dmg` (or `-x64.zip`)
-- **Claude Desktop kit** — `circuit-1.0.0-preview.2.mcpb` (the one-click extension that connects Claude to your board)
+- **Windows** — `Circuit-1.0.0-preview.3-setup.exe`
+- **macOS (Apple Silicon)** — `Circuit-1.0.0-preview.3-arm64.dmg` (or `-arm64.zip`)
+- **macOS (Intel)** — `Circuit-1.0.0-preview.3-x64.dmg` (or `-x64.zip`)
+- **Claude Desktop kit** — `circuit-1.0.0-preview.3.mcpb` (the one-click extension that connects Claude to your board)
 
 ## Install
 
 **Windows**
 
-1. Run `Circuit-1.0.0-preview.2-setup.exe`.
+1. Run `Circuit-1.0.0-preview.3-setup.exe`.
 2. If SmartScreen shows "Windows protected your PC", click **More info**, then **Run anyway**.
 
 **macOS**
@@ -26,7 +26,7 @@ Get everything from the **[v1.0.0-preview.2 release](https://github.com/bruhman-
 
 **Claude Desktop kit**
 
-1. Double-click `circuit-1.0.0-preview.2.mcpb`, or drag it into Claude Desktop → **Settings → Extensions**.
+1. Double-click `circuit-1.0.0-preview.3.mcpb`, or drag it into Claude Desktop → **Settings → Extensions**.
 2. Choose your board folder when asked (default: `Documents/Circuit`).
 3. Restart Claude Desktop. Claude can now read and write your board through 55 tools.
 
@@ -34,8 +34,8 @@ Get everything from the **[v1.0.0-preview.2 release](https://github.com/bruhman-
 
 Check your download against `SHA256SUMS.txt` from the release page:
 
-- Windows: `Get-FileHash .\Circuit-1.0.0-preview.2-setup.exe`
-- macOS: `shasum -a 256 ~/Downloads/Circuit-1.0.0-preview.2-arm64.dmg`
+- Windows: `Get-FileHash .\Circuit-1.0.0-preview.3-setup.exe`
+- macOS: `shasum -a 256 ~/Downloads/Circuit-1.0.0-preview.3-arm64.dmg`
 
 ## Use
 
