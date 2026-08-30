@@ -2,6 +2,12 @@
 
 Circuit is a desktop task board that you and Claude both read and write — one shared board file on your own disk.
 
+> ### 🧪 This is a free public beta — and it stays free, forever.
+>
+> The build you download here is the open beta of Circuit. It's complete and fully usable, and it will remain **free and publicly available on this page for good** — install it, keep it, use it as long as you like.
+>
+> **Circuit v1.0 will be a paid release.** From here on, every new feature, improvement, and fix lands in v1 — this beta is a fixed snapshot, not the ongoing product. Grab it now and the beta is yours for free; everything that comes *next* lives in the paid v1.
+
 ## Download
 
 Get everything from the **[latest release](https://github.com/bruhman-rtx/circuit-desktop/releases/latest)**. Every file carries the version in its name, shown here as `<version>`:
