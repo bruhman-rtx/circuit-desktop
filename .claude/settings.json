@@ -24,7 +24,9 @@
   "enabledPlugins": {
     "neil-setup@claude-setup": true,
     "token-optimizer@alexgreensh-token-optimizer": true,
-    "prompt-improver@severity1-marketplace": true
+    "prompt-improver@severity1-marketplace": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-setup": {
@@ -45,5 +47,21 @@
         "repo": "severity1/severity1-marketplace"
       }
     }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(rtk ls:*)",
+      "Bash(rtk tree:*)",
+      "Bash(rtk read:*)",
+      "Bash(rtk wc:*)",
+      "Bash(rtk grep:*)",
+      "Bash(rtk rg:*)",
+      "Bash(rtk git status:*)",
+      "Bash(rtk git diff:*)",
+      "Bash(rtk git log:*)",
+      "Bash(rtk git show:*)",
+      "Bash(rtk git branch --list:*)",
+      "Bash(rtk gain:*)"
+    ]
   }
 }
