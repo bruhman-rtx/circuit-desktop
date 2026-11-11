@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "autoCompactEnabled": true,
+  "autoCompactWindow": 200000,
+  "env": {
+    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "200000",
+    "TOKEN_OPTIMIZER_BASH_COMPRESS": "0",
+    "ECC_HOOKS_ENABLED": "false"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "RTK=\"$(command -v rtk || echo \"$HOME/.local/bin/rtk\")\"; [ -x \"$RTK\" ] || exit 0; IN=\"$(cat)\"; if printf '%s' \"$IN\" | grep -qE '\"command\" *: *\"[[:space:]]*git +(commit|push|reset|checkout|switch|restore|rebase|merge|clean|stash|tag|branch)'; then exit 0; fi; printf '%s' \"$IN\" | exec \"$RTK\" hook claude 2>/dev/null",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "neil-setup@claude-setup": true,
+    "token-optimizer@alexgreensh-token-optimizer": true,
+    "prompt-improver@severity1-marketplace": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-setup": {
+      "source": {
+        "source": "github",
+        "repo": "bruhman-rtx/claude-setup"
+      }
+    },
+    "alexgreensh-token-optimizer": {
+      "source": {
+        "source": "github",
+        "repo": "alexgreensh/token-optimizer"
+      }
+    },
+    "severity1-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "severity1/severity1-marketplace"
+      }
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(rtk ls:*)",
+      "Bash(rtk tree:*)",
+      "Bash(rtk read:*)",
+      "Bash(rtk wc:*)",
+      "Bash(rtk grep:*)",
+      "Bash(rtk rg:*)",
+      "Bash(rtk git status:*)",
+      "Bash(rtk git diff:*)",
+      "Bash(rtk git log:*)",
+      "Bash(rtk git show:*)",
+      "Bash(rtk git branch --list:*)",
+      "Bash(rtk gain:*)"
+    ]
+  }
+}
